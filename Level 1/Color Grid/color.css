@@ -1,0 +1,156 @@
+*{
+    width: 600px;
+    height: 100px;
+}
+
+div.first{
+    box-sizing: border-box; 
+    max-width: 597px;
+    background-color: #F5C6D6;
+    padding: 10px;
+    border: 3px solid white;
+}
+
+.second > div{
+    display: inline-block;
+    margin-top: 1px;
+    margin-bottom: 4px;
+    width: 600px;
+}
+
+#one{
+    box-sizing: border-box; 
+    width: 145.5px;
+    background-color: #EE2E84;
+    padding: 10px;
+    border: 3px solid white;
+}
+#two{
+    box-sizing: border-box; 
+    width: 145.5px;
+    background-color: #EE2E84;
+    padding: 10px;
+    border: 3px solid white;
+}
+#three{
+    box-sizing: border-box; 
+    width: 145.5px;
+    background-color: #EE2E84;
+    padding: 10px;
+    border: 3px solid white;
+}
+#four{
+    box-sizing: border-box; 
+    width: 145.5px;
+    background-color: #EE2E84;
+    padding: 10px;
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    border-right: 0px;
+}
+
+.ROW3 > div{
+    display: inline-block;
+    margin-top: 1px;
+    margin-bottom: 4px;
+}
+#row3{
+    box-sizing: border-box; 
+    width: 297px;
+    background-color: #85CFD8;
+    padding: 10px;
+    border: 3px solid white;
+}
+#Row3{
+    box-sizing: border-box; 
+    width: 297px;
+    background-color: #85CFD8;
+    padding: 10px;
+    border: 3px solid white;
+}
+
+.ROW4 > div{
+    display: inline-block;
+    margin-top: 1px;
+    width: 600px;
+}
+#row4{
+    box-sizing: border-box; 
+    width: 447px;
+    background-color: #8DC63F;
+    padding: 10px;
+    border: 3px solid white;
+}
+#Row4{
+    box-sizing: border-box; 
+    width: 147px;
+    background-color: #E76E34;
+    padding: 10px;
+    border: 3px solid white;
+}
+
+@media only screen and (min-width: 768px){
+
+    div{
+        display: inline-block;
+        max-height: 50px;
+        max-width: fill;
+    }
+    
+    div.first{
+        box-sizing: border-box; 
+        max-width: 100%;
+        background-color: #F5C6D6;
+    }
+    
+    #one{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #EE2E84;
+    }
+
+    #two{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #EE2E84;
+    }
+
+    #three{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #EE2E84;
+    }
+
+    #four{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #EE2E84;
+    }
+
+    #row3{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #85CFD8;
+    }
+    #Row3{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #85CFD8;
+    }
+
+    #row4{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #8DC63F;
+    }
+    #Row4{
+        box-sizing: border-box; 
+        width: 100%;
+        background-color: #E76E34;
+    }
+}
+
+
+
+
