@@ -1,0 +1,13 @@
+h2{
+    text-align: center;
+    text-decoration: underline;
+    font-family: serif;
+}
+
+#square{
+    box-sizing: border-box;
+    border: 2px solid black;
+    width: auto;
+    height: 500px;
+    margin: 40px;
+}

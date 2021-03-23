@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>DOM Olympics</title>
+</head>
+<body>
+    <header id="header"></header>
+    <label>Theme</label> 
+    <select name="colors" id="theme-drop-down" onchange="changeTheme()">
+        <option id="option1" value="blue">blue/brown</option>
+        <option id="option2" value="red" >red/gray</option>
+    </select>
+    <div id="main">
+        <button type="button" id='clear-button' onclick="deleteMessages()">clear</button>
+        <div id="messages">
+            <div class="left" id="left">
+                <span id="left1">I have something serious to talk about</span>
+            </div>
+            <div class="right" id="right">
+                <span id="right1">I don't want to talk</span>
+            </div>
+            <div  class="left" id="left">
+                <span id="left2">You have to, you're the police</span>
+            </div>
+            <div class="right" id="right">
+                <span id="right2">I'm just a simple farmer</span>
+            </div>
+        </div>
+        <form id= "button" name="message">
+            <input id="input" value="Thanks! Goodbye"/>
+            <button type="button" id="send" onclick="newMessage()">Send</button>
+        </form>
+    </div>
+   
+    <script src="index.js"></script>
+</body>
+</html>
