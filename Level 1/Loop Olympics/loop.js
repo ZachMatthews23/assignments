@@ -56,12 +56,15 @@
 // console.log(nameArr)
 // console.log(jobArr)
 
-const arrays = 3;
-const items = 3;
-var arr = new Array(arrays);
-for(var i = 0; i < items; i++){
-  arr[i] = new Array(items);
-} for( var j = 1; j < arr[0].length; j++){
-  arr[0].push([j])
+
+var newArr = []
+
+for(var i = 0; i <= 0; i++){
+  newArr.push();
+  var innerArr = [];
+  for(var j = 0; j <= 2; j++){
+      innerArr.push(j)
+      newArr.push(innerArr)
+  }
 }
-console.log(arr[0])
+console.log(newArr)
