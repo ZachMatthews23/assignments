@@ -35,9 +35,7 @@ form.addEventListener("submit", (event) => {
 
     edit.addEventListener("click", function(event){
         event.preventDefault()
-        var input = document.createElement("input")
-        div.contentEditable = "true";
-        var newDiv = input.value    
+        div.contentEditable = "true";   
     })
 })
 
