@@ -49,7 +49,7 @@ if(welcome === 'w'){
 } else if(welcome === 'p'){
     playerInfo();
     break;
-} else if(player.hp === 0){
+} else if(player.hp <= 0){
     console.log(chalk.black.bgRed("YOU HAVE DIED! GAME OVER!"));
 }
 }
@@ -102,6 +102,8 @@ function fight(){
             } else if (enemiesArr.length === 0){
                 console.log(chalk.black.bgGreen.bold("Congratulations, " + player.name + ". You have defeated all of the enemies and lifted the curse!"))
             }
+        }else if(player.hp <= 0){
+            console.log(chalk.black.bgRed("YOU HAVE DIED! GAME OVER!"));
         }
     }
 }
