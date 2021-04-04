@@ -1,0 +1,38 @@
+body{
+    font-family: serif;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    height: 500px;
+    width: 500px;
+}
+
+h1, h3{
+    text-align: center;
+}
+
+input{
+    margin: 5px;
+}
+select{
+    margin: 5px;
+}
+button{
+    margin: 5px;
+}
+
+h6{
+    margin: 5px;
+}
+
+form{
+    background-color: lightblue;
+}
+
+#header, #footer{
+    background-color: lightgray;
+}
+
+#footer{
+    height: 150px;
+}

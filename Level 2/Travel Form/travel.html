@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matthews Airlines</title>
+        <link rel="stylesheet" href="travel.css"/>
+    </head>
+    <body>
+        <div id="header">
+        <h1>Welcome to Matthews Airlines!</h1>
+        <h3>Where our mission is to take you where WE want to go!</h3>
+        </div>
+        <form name="travelForm">
+            <input type="text" name="firstName"/>
+            <label>First Name</label>
+            <br>
+            <input type="text" name="lastName"/>
+            <label>Last Name</label>
+            <br>
+            <input type="digit" name="age"/>
+            <label>Age</label>
+            <br>
+            <input type="radio" name="gender" value="Robot" id="robot"/>
+            <label>Robot</label>
+            <br>
+            <input type="radio" name="gender" value="Cyborg" id="cyborg"/>
+            <label>Cyborg</label>
+            <br>
+            <input type="radio" name="gender" value="Terminator" id="terminator"/>
+            <label>Terminator</label>
+            <br>
+            <select name="location">
+                <option value="Matrix">Matrix</option>
+                <option value="Skynet">Skynet</option>
+                <option value="Take me anywhere!">Surprise Me!</option>
+            </select>
+            <label>Where can we take you?</label>
+            <br>
+            <input class="food" type="checkbox" name="meat" id="meat" value="Meat"/>
+            <label>Meat</label>
+            <input class="food" type="checkbox" name="noMeat" id="noMeat" value="No Meat"/>
+            <label>No Meat</label>
+            <input class="food" type="checkbox" name="surprise" id="surprise" value="Surprise Me!"/>
+            <label>Pilot's Choice!</label>
+            <br>
+            <button>I'm Ready to Go!</button>
+        </form>
+        <div id="footer">
+        <h6>*By pushing the button you agree to all terms and policies of Matthews Airlines. Including giving the right of Matthews Airlines to change all information you have given and replace it with something that works better for the airline.</h6>
+        </div>
+        <script src="travel.js"></script>
+    </body>
+</html>

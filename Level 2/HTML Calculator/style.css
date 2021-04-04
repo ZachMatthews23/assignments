@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+}
+div{
+    padding: 10px;
+}
+
+input{
+    width: 40px;
+}
