@@ -1,0 +1,136 @@
+body{
+    text-align: center;
+    font-family: serif;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    background-color: blueviolet;
+}
+
+h1{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#box1{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: chartreuse;
+    box-shadow: 10px 5px 5px palevioletred;
+    transition: all 500ms linear;
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+#box2{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: chartreuse;
+    transition: all 1.5s ease-in-out 500ms;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+#box3{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: chartreuse;
+    transition: all 500ms ease-in 1s;
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+
+#box4{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: chartreuse;
+    transition: all 1ms linear;
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+
+#box5{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: chartreuse;
+    transition: all 500ms ease-in-out;
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+
+#box6{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: chartreuse;
+    transition: all 2s linear;
+    grid-row: 3/4;
+    grid-column: 3/4;
+}
+
+#box1:hover{
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    background-color: coral;
+    box-shadow: -10px 5px 5px chartreuse;
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+#box2:hover{
+    width: 300px;
+    height: 400px;
+    border: 6px dotted black;
+    background-color: crimson;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+#box3:hover{
+    width: 100px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: yellow;
+    border-radius: 10px;
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+
+#box4:hover{
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: rgb(204, 93, 255);
+    position: relative;
+    left: 80px;
+    top: 30px;
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+
+#box5:hover{
+    width: 300px;
+    height: 400px;
+    border: 2px solid black;
+    background-color: rgb(112, 192, 216);
+    font-size: xx-large;
+    padding: 200px;
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+
+#box6:hover{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: rgb(255, 0, 179);
+    opacity: 0.2;
+    grid-row: 3/4;
+    grid-column: 3/4;
+}
