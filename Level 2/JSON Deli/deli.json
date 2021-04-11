@@ -1,0 +1,74 @@
+{
+    "menu": [
+        {
+            "appetizers": [
+                {
+                    "name": "Fried Pickles",
+                    "ingredients": ["pickles", "pancko", "fried"],
+                    "description": "Deliciously fried pickles, crispy and crunchy"
+                },
+                {
+                    "name": "Fruit Bowl",
+                    "ingredients": ["Strawberry", "Banana", "Melon"],
+                    "description": "Fresh fruit from local farms"
+                }
+            ]
+        },
+        {
+            "cold sandwiches": [
+                {
+                    "name": "Turkey and Cheese",
+                    "ingredients": ["turkey", "cheese"],
+                    "description": "Turkey and cheese on white bread"
+                },
+                {
+                    "name": "Ham and Cheese",
+                    "ingredients": ["ham", "cheese"],
+                    "description": "Ham and cheese on wheat bread"
+                }
+            ]
+        },
+        {
+            "hot sandwiches": [
+                {
+                    "name": "Philly cheesesteak",
+                    "ingredients": ["steak", "cheese"],
+                    "description": "Delicious cheesesteak Philadelphia style"
+                },
+                {
+                    "name": "Meatball Sub",
+                    "ingredients": ["meatballs", "marinara"],
+                    "description":"Hot meatball sub in delicious marinara topped with parm"
+                }
+            ]
+        },
+        {
+            "desserts": [
+                {
+                    "name": "lava cake",
+                    "ingredients": ["chocolate", "more chocolate"],
+                    "description": "Molten chocolate inside chocolate sponge cake"
+                },
+                {
+                    "name": "chocolate chip cookies",
+                    "ingredients": ["chocolate chips", "cookie"],
+                    "description": "In house backed chocolate chip cookies, made with love"
+                }
+            ]
+        },
+        {
+            "drinks": [
+                {
+                    "name": "soda",
+                    "ingredients": ["coke", "sprite", "dr. pepper"],
+                    "description": "Choose from small, medium and large"
+                },
+                {
+                    "name": "milk shake",
+                    "ingredients" :["chocolate", "vanilla", "strawberry"],
+                    "description": "Choose from small, medium and large"
+                }
+            ]
+        }
+    ]
+}
