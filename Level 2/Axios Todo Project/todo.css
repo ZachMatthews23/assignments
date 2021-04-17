@@ -19,3 +19,28 @@ input{
 #formTitle{
     text-decoration: underline;
 }
+
+#myList{
+    text-align: left;
+    margin-top: 50px;
+}
+
+.listItem{
+    margin: 30px 10px;
+}
+
+.todoItem{
+    display: inline;
+}
+
+.check{
+    display: inline;
+    position: absolute;
+    right: 10px;
+}
+
+.delete{
+    display: inline;
+    position: absolute;
+    right: 125px;
+}
