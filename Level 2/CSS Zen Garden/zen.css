@@ -2,18 +2,11 @@ body{
     padding: 0;
     margin: 0;
 }
+
 .container{
     display: grid;
     grid-template-rows: repeat(6);
     grid-template-columns: repeat(3, 1fr);    
-}
-
-.container > div {
-   
-}
-
-#title::before{
-    
 }
 
 .title{
@@ -23,12 +16,43 @@ body{
 #title{
     grid-row: 1/2;
     grid-column: 1/3;
-    height: 250px;
+    padding: 60px 0px 60px 350px;
+    color: white;
+}
+
+#title1{
+    text-transform: uppercase;
+    margin-bottom: 1px;
 }
 
 #title2{
+    font-style: italic;
+    margin-top: 1px;
+}
+
+#next{
     grid-row: 1/2;
     grid-column: 3/4;
+    padding: 70px 130px 70px 50px;
+}
+
+a:link{
+    color: teal;
+    text-decoration: none;
+}
+
+a:visited{
+    color: teal;
+    text-decoration: none;
+}
+
+.next{
+    list-style-type: none;
+    float: right;
+    margin: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.295);
+    background-color: rgba(255, 255, 255, 0.39);
+    padding: 10px;
 }
 
 #main{
@@ -45,6 +69,25 @@ body{
     grid-row: 2/3;
     grid-column: 3/4;
     display: block;
+    padding-left: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.author{
+    list-style-type: none;
+    padding: 30px;
+    font-style: italic;
+}
+
+.design-name{
+    display: block;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+.designer-name{
+    font-style: normal;
 }
 
 #participation{
@@ -60,6 +103,14 @@ body{
     background-color: rgb(111, 211, 169);
     grid-row: 3/4;
     grid-column: 3/4;
+    padding: 175px 30px 70px 30px;
+}
+
+#links{
+    list-style-type: none;
+    text-transform: uppercase;
+    margin: 30px;
+    font-size: larger;
 }
 
 #requirements{
@@ -81,8 +132,15 @@ body{
     grid-row: 5/6;
     grid-column: 1/4;
     background: rgba(208,228,245,0.5) url("http://www.csszengarden.com/214/huntington.jpg") no-repeat scroll 0 0;
-    height: 100px;
+    padding: 50px 50px 50px 80px;
     font-size: 2em;
+    height: 150px;
+}
+
+#author{
+    width: 1300px;
+    text-align: center;
+    color: rgb(219, 219, 219);
 }
 
 .footer {
@@ -93,35 +151,24 @@ body{
 
 }
 
-@media (max-width: 900px){
-    /* use this media query to help these two cells drop to the bottom when screens are smaller */
-    .authors {
-         
-    }
-    .links {
-
-    }
-    /* container could use some help so that it's children are full screen width */
-    .container {
-        
-    }
-}
-
 /* FLEX */
 /* use flexbox to make the icons behave like css zen garden's social icons */
-.icons {
+.footer {
     display: flex;
     justify-content: space-around;
-    width: 50%;
+    width: 100%;
     margin: auto;
-    padding: 10px;
+    padding:20px;
+    max-height: 100px;  
 }
 
-.icons > div {
-    width: 30px;
-    height: 30px;
+.footer > a {
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
     background-color: black;
     border-radius: 50%;
+    text-align: center;
 }
 
 p{
@@ -134,4 +181,83 @@ h3{
     font-family: sans-serif;
     font-weight: normal;
     font-size: 1.8em;
+}
+
+@media (max-width: 1200px){
+    /* use this media query to help these two cells drop to the bottom when screens are smaller */
+    .container{
+        display: grid;
+        grid-template-rows: repeat(15);
+        grid-template-columns: repeat(4, 1fr);    
+    }
+
+    #title{
+        grid-row: 1/2;
+        grid-column: 1/5; 
+        max-height: 100px;
+        padding: 25px 60px 25px 400px;
+    }
+
+    #next{
+        grid-row: 2/3;
+        grid-column: 1/5;
+        height: 75px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .next{
+        list-style-type: none;
+        float: right;
+        margin: 0px;
+        border: 1px solid rgba(255, 255, 255, 0.295);
+        background-color: rgba(255, 255, 255, 0.39);
+        padding: 10px;
+    }
+
+    #main{
+        grid-row: 3/4;
+        grid-column: 1/5;
+    }
+
+    #participation{
+        grid-row: 4/5;
+        grid-column: 1/5;
+    }
+
+    #requirements{
+        grid-row: 5/6;
+        grid-column: 1/5;
+    }
+
+    #by{
+        grid-row: 6/7;
+        grid-column: 1/5;
+    }
+
+    #author{
+        width: 1000px;
+    }
+
+    .footer {
+        grid-row: 7/8;
+        grid-column: 1/5;
+    }
+
+    #blank{
+        grid-row: 11/12;
+        grid-column: 1/5;
+    }
+
+    .links {
+        grid-row: 10/11;
+        grid-column: 1/5;
+        padding: 175px 30px 70px 30px;
+    }
+
+    .authors {
+        grid-row: 9/10;
+        grid-column: 1/5;
+        display: block;
+    }
 }
