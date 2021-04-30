@@ -1,0 +1,59 @@
+body{
+    font-family: serif;
+    text-align: center;
+    background-color: lightgray;
+}
+
+form{
+    border: 3px solid black;
+    padding: 10px;
+    min-height: 500px;
+    background-color: white;
+    margin: 0px 100px;
+}
+
+#input{
+    width: 250px;
+}
+
+#price{
+    width: 50px;
+}
+
+#description{
+    width: 400px;
+}
+
+#formTitle{
+    text-decoration: underline;
+}
+
+#myList{
+    text-align: left;
+    margin-top: 50px;
+}
+
+.listItem{
+    margin: 30px 10px;
+}
+
+.todoItem{
+    display: inline;
+}
+
+.check{
+    display: inline;
+    position: absolute;
+    right: 210px;
+}
+
+.delete{
+    display: inline;
+    position: absolute;
+    right: 130px;
+}
+
+.image{
+    width: auto;
+    height: 100px;
+}
