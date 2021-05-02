@@ -1,13 +1,11 @@
-let playerStatus = ["Powered Up", "Big", "Small", "Dead"]
-
-gameActive = true
 
 class Player {
-    constructor(name, totalCoins = 0, status = playerStatus[0], hasStar = false){
+    constructor(name, totalCoins = 0, status = "Powered Up", hasStar = false, gameActive = true){
         this.name = name
         this.totalCoins = totalCoins
         this.status = status
         this.hasStar = hasStar
+        this.gameActive = gameActive
     }
 
     setName(namePicked){
@@ -16,37 +14,53 @@ class Player {
 
     gotHit(){
         if(this.hasStar = true){
-            this.hasStar = false
-            console.log("You used your star!")
-        } else {
-            this.status = playerStatus[1]
+            console.log("You were saved by the star!")
+        } else if (this.status = "Powered Up"){
+            return this.status = "Big"
+        } else if(this.status = "Big"){
+            return this.status = "Small"
+        } else if(this.status = "Small"){
+            return this.status = "Dead"
         }
+
+        // player.print()
     }
 
     powerUp(){
-        if(this.status === "Powered Up"){
-            this.hasStar = true
-            console.log("You gained a star!")
-        } else {
-            this.status = playerStatus[0]
+        if(this.status = "Powered Up"){
+            console.log("You found a star!")
+            return this.hasStar = true
+        } else if (this.status = "Big"){
+            return this.status = "Powered Up"
+        } else if(this.status = "Small"){
+            return this.status = "Big"
         }
+        // player.print()
     }
 
     addCoin(){
         this.totalCoins++
+        return this.totalCoins
     }
 
-    print(name, totalCoins, status, hasStar){
+    print(){
         console.log(player)
     }
 
-    
+    gameActive(){
+        if(this.status === "Dead"){
+            this.gameActive = false
+            console.log("Game Over!")
+            return this.gameActive
+        }
+    }
 }
+
 
 const player = new Player("Luigi")
 
-const number = function(){
-    Math.floor(Math.random() * 3)
+function randomNumber(){
+    let number = Math.floor(Math.random() * 3)
     if(number === 0){
         player.gotHit()
     } else if(number === 1){
@@ -54,8 +68,16 @@ const number = function(){
     } else if(number === 2){
         player.addCoin()
     }
-
-    player.print()
 }
 
-setInterval(number, 1000)
+function runGame(player) {
+    const play = setInterval(() => {
+        randomNumber(player)
+        if (player.gameActive === false) {
+            clearInterval(play)
+        } else { 
+            player.print()}
+    }, 3000)
+};
+
+runGame(player)
