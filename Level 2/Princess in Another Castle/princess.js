@@ -8,32 +8,38 @@ class Player {
         this.gameActive = gameActive
     }
 
-    setName(namePicked){
-        this.name = namePicked
-    }
+    // setName(namePicked){
+    //     this.name = namePicked
+    // }
 
     gotHit(){
-        if(this.hasStar = true){
-            console.log("You were saved by the star!")
-        } else if (this.status = "Powered Up"){
-            return this.status = "Big"
-        } else if(this.status = "Big"){
-            return this.status = "Small"
-        } else if(this.status = "Small"){
-            return this.status = "Dead"
-        }
+        // if(this.hasStar = true){
+        //     console.log("You were saved by the star!")
+        if (this.status === "Powered Up"){
+            this.status = "Big"
+        } else if(this.status === "Big"){
+            this.status = "Small"
+        } else if(this.status === "Small"){
+            this.status = "Dead"
+        } 
 
+        // if(this.status === "Dead"){
+        //     this.gameActive = false
+        //     if(player.gameActive === false){
+        //         clearInterval(play)
+        //     }
+        // }
         // player.print()
     }
 
     powerUp(){
-        if(this.status = "Powered Up"){
-            console.log("You found a star!")
-            return this.hasStar = true
-        } else if (this.status = "Big"){
-            return this.status = "Powered Up"
-        } else if(this.status = "Small"){
-            return this.status = "Big"
+        if(this.status === "Powered Up"){
+            // console.log("You found a star!")
+            this.hasStar = true
+        } else if (this.status === "Big"){
+            this.status = "Powered Up"
+        } else if(this.status === "Small"){
+            this.status = "Big"
         }
         // player.print()
     }
@@ -47,37 +53,44 @@ class Player {
         console.log(player)
     }
 
-    gameActive(){
-        if(this.status === "Dead"){
-            this.gameActive = false
-            console.log("Game Over!")
-            return this.gameActive
-        }
-    }
+    // gameActive(){
+    //     if(this.status === "Dead"){
+    //         this.gameActive = false
+    //         return this.gameActive
+    //     } else{
+    //         randomNumber()
+    //     }
+    // }
 }
 
 
-const player = new Player("Luigi")
+const player = new Player("Mario")
 
 function randomNumber(){
     let number = Math.floor(Math.random() * 3)
     if(number === 0){
         player.gotHit()
+        console.log("You got hit!")
     } else if(number === 1){
         player.powerUp()
+        console.log("You powered up!")
     } else if(number === 2){
         player.addCoin()
+        console.log("You found a coin!")
     }
 }
 
-function runGame(player) {
+function run() {
     const play = setInterval(() => {
-        randomNumber(player)
-        if (player.gameActive === false) {
+        randomNumber()
+        if (player.status === "Dead") {
             clearInterval(play)
+            player.print()
+            console.log("You died, game over!")
         } else { 
             player.print()}
-    }, 3000)
+    }, 2000)
 };
 
-runGame(player)
+run(player)
+
