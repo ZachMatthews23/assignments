@@ -3,12 +3,12 @@ body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a{
+.blog-link{
     text-decoration: none;
     color: black;
 }
 
-a:hover{
+.blog-link:hover{
     color: teal;
 }
 
@@ -35,7 +35,8 @@ a:visited{
 }
 
 .older-posts-btn{
-    color: #fff;
+    color: #fff !important;
+    text-decoration: none;
     background-color: #0085A1;
     border-color: #0085A1;
     display: inline-block;
@@ -124,7 +125,8 @@ li > a{
     font-size: 0.75em;
     font-weight: 800;
     letter-spacing: 0.06em;
-    padding: 1.5rem 1rem 1.5rem 1rem
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    text-decoration: none;    
 }
 
 footer{
