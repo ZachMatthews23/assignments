@@ -9,6 +9,13 @@ class App extends React.Component{
         }
 
         this.changeColor = this.changeColor.bind(this)
+        this.topColor = this.topColor.bind(this)
+        this.leftColor = this.leftColor.bind(this)
+        this.rightColor = this.rightColor.bind(this)
+        this.newColor = this.newColor.bind(this)
+        this.newerColor = this.newerColor.bind(this)
+        this.newestColor = this.newestColor.bind(this)
+        this.newerestColor = this.newerestColor.bind(this)
     }
 
     changeColor(){
@@ -25,6 +32,79 @@ class App extends React.Component{
             }
         })
     }
+
+    topColor(){
+        this.setState(prevState => {
+            prevState.colors[0] = "purple";
+            prevState.colors[1] = "purple"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
+
+    leftColor(){
+        this.setState(prevState => {
+            prevState.colors[2] = "blue"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
+
+    rightColor(){
+        this.setState(prevState => {
+            prevState.colors[3] = "blue"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
+
+    newColor(){
+        this.setState(prevState => {
+            prevState.colors[0] = "orange"
+            prevState.colors[3] = "orange"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
+
+    newerColor(){
+        this.setState(prevState => {
+            prevState.colors[1] = "firebrick"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
+
+    newestColor(){
+        this.setState(prevState => {
+            prevState.colors[2] = "yellow"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
+
+    newerestColor(){
+        this.setState(prevState => {
+            prevState.colors[1] = "green"
+            prevState.colors[2] = "green"
+
+            return{
+                colors: prevState.colors
+            }
+        })
+    }
     
     render(){
 
@@ -34,7 +114,16 @@ class App extends React.Component{
                 <Square color={this.state.colors[1]}/>
                 <Square color={this.state.colors[2]}/>
                 <Square color={this.state.colors[3]}/>
-                <button onClick={this.changeColor}>Small Time Dj</button>
+                <div className="btns">
+                    <button onClick={this.changeColor}>Small Time Dj</button>
+                    <button onClick={this.topColor}>Party DJ</button>
+                    <button onClick={this.leftColor}>Left Blue</button>
+                    <button onClick={this.rightColor}>Right Blue</button>
+                    <button className="btn-1" onClick={this.newColor}>Pro DJ 1</button>
+                    <button className="btn-2"  onClick={this.newerColor}>Pro DJ 2</button>
+                    <button className="btn-3"  onClick={this.newestColor}>Pro DJ 3</button>
+                    <button className="btn-4"  onClick={this.newerestColor}>Pro DJ 4</button>
+                </div>
             </div>
         )
     }

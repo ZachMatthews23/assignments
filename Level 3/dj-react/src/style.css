@@ -23,3 +23,28 @@ button{
     width: 100px;
     height: 25px;
 }
+
+.btns{
+    display: grid;
+    grid-template-columns: 150px, 150px;
+}
+
+.btn-1{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.btn-2{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.btn-3{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.btn-4{
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
