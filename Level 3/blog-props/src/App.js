@@ -5,11 +5,11 @@ import Footer from './Footer'
 
 function App() {
     return(
-        <html>
+        <div>
             <Header />
             <BlogList />
             <Footer />
-        </html>
+        </div>
     )
 }
 
