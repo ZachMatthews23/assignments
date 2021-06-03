@@ -1,0 +1,87 @@
+body{
+    background-color: whitesmoke;
+}
+
+.form{
+    background-color: white;
+    margin: auto;
+    width: 60%;
+    align-items: center;
+    border: 1px solid #efefef;
+    border-radius: 3px;
+    box-shadow:
+    /* The top layer shadow */
+        0 1px 1px rgba(0,0,0,0.15),
+            /* The second layer */
+        0 10px 0 -5px #eee,
+            /* The second layer shadow */
+        0 10px 1px -4px rgba(0,0,0,0.15),
+            /* The third layer */
+        0 20px 0 -10px #eee,
+            /* The third layer shadow */
+        0 20px 1px -9px rgba(0,0,0,0.15);
+    padding: 30px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+#firstName{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+#lastName{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+#email{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+#birthPlace{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+#phone{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+#favFood{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+.flex-box{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+#about{
+    width: 600px;
+    height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+button{
+    border: 2px solid rgba(0, 0, 0, 0.486);
+    border-radius: 3px;
+    width: 30%;
+}

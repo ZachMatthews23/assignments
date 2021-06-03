@@ -1,19 +1,19 @@
 import React from 'react'
+import Badge from './Badge'
 
 class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            badge: [{
-                firstName: "",
-                lastName: "",
-                email: "",
-                birthPlace: "",
-                phone: "",
-                favFood: "",
-                about: ""
-            }]
-        }
+            firstName: "",
+            lastName: "",
+            email: "",
+            birthPlace: "",
+            phone: "",
+            favFood: "",
+            about: "",
+            badges: []
+            }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,82 +21,105 @@ class App extends React.Component {
 
     handleChange(event) {
         const {name, value} = event.target
-        this.setState(prevState => {
-            return {
-                badge: {
-                    ...prevState.badge,
-                    [name]: value
-                }   
-            }
-        })
+        this.setState({[name]: value})
     }
 
     handleSubmit(event) {
         event.preventDefault();
+        const newName = `${this.state.firstName} ${this.state.lastName}`
+        const newEmail = this.state.email
+        const placeOfBirth = this.state.birthPlace
+        const newPhone = this.state.phone
+        const food = this.state.favFood
+        const aboutMe = this.state.about
         this.setState(prevState => ({
-            badge: [...prevState]
+            firstName: "",
+            lastName: "",
+            email: "",
+            birthPlace: "",
+            phone: "",
+            favFood: "",
+            about: "",
+            badges: [...prevState.badges, newName, newEmail, placeOfBirth, newPhone, food, aboutMe]
         }))
-        console.log(this.state.badge)
+        console.log(this.state)
     }
 
     render() {
-        const array = this.state.badge.map(item => <h1>{item}</h1>)
+        const array = this.state.badges.map(item => <h1>{item}</h1>)
 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        name="firstName" 
-                        value={this.state.badge.firstName} 
-                        placeholder="First Name" 
-                        minLength="3" 
-                        onChange={this.handleChange}></input>
-                    <br />
-                    <input 
-                        name="lastName" 
-                        value={this.state.badge.lastName} 
-                        placeholder="Last Name" 
-                        minLength="3" 
-                        onChange={this.handleChange}></input>
-                    <br />
-                    <input 
-                        type="email" 
-                        name="email" 
-                        value={this.state.badge.email} 
-                        placeholder="Email" 
-                        minLength="3" 
-                        onChange={this.handleChange}></input>
-                    <br />
-                    <input 
-                        name="birthPlace" 
-                        value={this.state.badge.birthPlace} 
-                        placeholder="Place of Birth" 
-                        minLength="3" 
-                        onChange={this.handleChange}></input>
-                    <br />
-                    <input 
-                        type="phone" 
-                        name="phone" 
-                        value={this.state.badge.phone} 
-                        placeholder="Phone" 
-                        minLength="3" 
-                        onChange={this.handleChange}></input>
-                    <br />
-                    <input 
-                        name="favFood" 
-                        value={this.state.badge.favFood} 
-                        placeholder="Favorite Food" 
-                        minLength="3" 
-                        onChange={this.handleChange}></input>
-                    <br />
-                    <textarea 
-                        name="about" 
-                        value={this.state.badge.about} 
-                        placeholder="Tell us about yourself" 
-                        minLength="3" 
-                        onChange={this.handleChange}/>
-                    <br />
-                    <button>Submit</button>
+                <form className="form" onSubmit={this.handleSubmit}>
+                    <div className="grid">
+                        <input
+                            id="firstName" 
+                            name="firstName" 
+                            value={this.state.firstName} 
+                            placeholder="First Name" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <input 
+                            id="lastName"
+                            name="lastName" 
+                            value={this.state.lastName} 
+                            placeholder="Last Name" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <input 
+                            id="email"
+                            type="email" 
+                            name="email" 
+                            value={this.state.email} 
+                            placeholder="Email" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <input 
+                            id="birthPlace"
+                            name="birthPlace" 
+                            value={this.state.birthPlace} 
+                            placeholder="Place of Birth" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <input 
+                            id="phone"
+                            type="phone" 
+                            name="phone" 
+                            value={this.state.phone} 
+                            placeholder="Phone" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <input 
+                            id="favFood"
+                            name="favFood" 
+                            value={this.state.favFood} 
+                            placeholder="Favorite Food" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <div className="flex-box">
+                        <textarea 
+                            id="about"
+                            name="about" 
+                            value={this.state.about} 
+                            placeholder="Tell us about yourself" 
+                            minLength="3" 
+                            onChange={this.handleChange}
+                        />
+                        <br />
+                        <button>Submit</button>
+                    </div>
                 </form>
                 {array}
             </div>
