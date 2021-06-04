@@ -26,12 +26,15 @@ class App extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const newName = `${this.state.firstName} ${this.state.lastName}`
-        const newEmail = this.state.email
-        const placeOfBirth = this.state.birthPlace
-        const newPhone = this.state.phone
-        const food = this.state.favFood
-        const aboutMe = this.state.about
+        const newObject = {
+            firstName: this.state.firstName, 
+            lastName: this.state.lastName, 
+            email: this.state.email, 
+            birthPlace: this.state.birthPlace, 
+            phone: this.state.phone, 
+            favFood: this.state.favFood, 
+            about: this.state.about
+        }
         this.setState(prevState => ({
             firstName: "",
             lastName: "",
@@ -40,13 +43,13 @@ class App extends React.Component {
             phone: "",
             favFood: "",
             about: "",
-            badges: [...prevState.badges, newName, newEmail, placeOfBirth, newPhone, food, aboutMe]
-        }))
-        console.log(this.state)
+            badges: [newObject, ...prevState.badges]
+          }))
+          console.log(this.state)  
     }
 
     render() {
-        const array = this.state.badges.map(item => <h1>{item}</h1>)
+        const array = this.state.badges.map(item => <Badge badges={item}/>)
 
         return (
             <div>
@@ -57,7 +60,7 @@ class App extends React.Component {
                             name="firstName" 
                             value={this.state.firstName} 
                             placeholder="First Name" 
-                            minLength="3" 
+                            minLength= "3" 
                             onChange={this.handleChange}
                         />
                         <br />
@@ -121,6 +124,7 @@ class App extends React.Component {
                         <button>Submit</button>
                     </div>
                 </form>
+                <br />
                 {array}
             </div>
         )
