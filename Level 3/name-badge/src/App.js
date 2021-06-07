@@ -50,6 +50,7 @@ class App extends React.Component {
 
     render() {
         const array = this.state.badges.map(item => <Badge badges={item}/>)
+        const isEnabled = this.state.firstName.length > 3 && this.state.lastName.length > 3 && this.state.email.length > 3 && this.state.birthPlace.length > 3 && this.state.phone.length > 3 && this.state.favFood.length > 3 && this.state.about.length > 3
 
         return (
             <div>
@@ -121,7 +122,7 @@ class App extends React.Component {
                             onChange={this.handleChange}
                         />
                         <br />
-                        <button>Submit</button>
+                        <button disabled={!isEnabled}>Submit</button>
                     </div>
                 </form>
                 <br />
