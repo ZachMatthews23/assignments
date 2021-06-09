@@ -1,0 +1,57 @@
+html,
+body{
+    height: 100%;
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+
+.header{
+    margin-bottom: 3rem;
+    background: no-repeat center center;
+    background-color: #413e3e;
+    background-size: cover;
+    background-attachment: scroll;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: whitesmoke;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+
+img{
+    width: 300px;
+    height: 200px;
+}
+
+.hit-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    min-height: 100%;
+    margin-bottom: -50px;
+    row-gap: 15px;
+}
+
+.targets{
+    text-decoration: underline;
+}
+
+.hit-grid{
+    text-align: center;
+}
+
+.footer{
+    border-top: 1px solid rgb(224, 224, 224);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #fff;
+    background-color: #413e3e;
+    padding: 0.5rem;
+    height: 50px;
+}
+
+.push{
+    height: 100px;
+}
