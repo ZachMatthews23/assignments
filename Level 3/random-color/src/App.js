@@ -4,20 +4,30 @@ import axios from 'axios'
 class App extends React.Component {
     constructor() {
         super()
-        this.state = {}
+        this.state = {
+            colorsArray: [],
+            backgroundColor: ""
+            
+        }
     }
 
-    componentDidMount(){
-        axios.get("https://www.colr.org/json/color/random?timestamp=")
-            .then(res => console.log(res.data))
+    componentDidMount() {
+        axios.get(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
+            .then(res => {
+                this.setState({
+                    colorsArray: [res.data.new_color]
+                })
+                console.log(this.state.colorsArray)
+            })
             .catch(err => console.log(err))
     }
 
     render() {
+
         return(
             <div>
-                Hello World
-            </div>
+                <h1 style={{backgroundColor: "#" + this.state.colorsArray}}></h1>
+            </div> 
         )
     }
 }
