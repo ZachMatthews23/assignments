@@ -34,7 +34,7 @@ class Meme extends React.Component {
         return(
             <div>
                 <img style={{width: "400px"}}  src={this.state.randomImg} alt=""/>
-                <button onClick={this.clickHandler}>Click Me</button>
+                <button onClick={this.clickHandler}>Generate Meme</button>
             </div>
         )
     }
