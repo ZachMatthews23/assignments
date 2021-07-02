@@ -1,0 +1,33 @@
+body{
+    font-family: monospace;
+    background-color: cornsilk;
+    margin: 0;
+}
+
+header{
+    background-color: tomato;
+    text-align: center;
+    height: 60px;
+    padding: 20px;
+    color: teal;
+    text-decoration: underline;
+}
+
+main{
+    text-align: center;
+}
+
+form{
+    padding: 25px;
+    height: 25px;
+    background-color: darkgoldenrod;   
+}
+
+img{
+    width: 350px;
+}
+
+.list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
