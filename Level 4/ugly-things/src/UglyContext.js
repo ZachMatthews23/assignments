@@ -15,7 +15,6 @@ function UglyProvider(props) {
         axios.post("https://api.vschool.io/zacharymatthews/thing/", uglyThings)
             .then(res => { 
                 console.log(res.data)
-                setUglythings()
                 return getUglies()
                 
             })
