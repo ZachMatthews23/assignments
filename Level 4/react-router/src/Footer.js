@@ -1,4 +1,5 @@
 import React from 'react'
+import {SocialIcon} from 'react-social-icons'
 
 function Footer() {
     return(
@@ -14,6 +15,9 @@ function Footer() {
             </span>
             <span className="right">
                 <h3>Check Us Out:</h3>
+                <SocialIcon url="https://twitter.com"/>
+                <SocialIcon url="https://facebook.com"/>
+                <SocialIcon url="https://instagram.com"/>
             </span>
         </footer>
     )
