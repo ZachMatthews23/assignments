@@ -9,6 +9,10 @@
     height: 100vh;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    background: url("./marvel-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
   
   a {
@@ -19,17 +23,6 @@
     max-width: 1100px;
     margin: auto;
     padding: 0 20px;
-  }
-  
-  .btn {
-    display: inline-block;
-    color: #fff;
-    background-color: #3fb573;
-    font-size: 1em;
-    text-align: center;
-    padding: 10px 15px;
-    border: 0;
-    margin: 10px 0;
   }
   
   header {
@@ -44,20 +37,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .search {
-    height: 100px;
-  }
-  
-  input[type='text'] {
-    display: block;
-    padding: 10px;
-    font-size: 20px;
-    border: 0;
-    border-radius: 5px;
-    width: 60%;
-    margin: auto;
   }
   
   .contents {

@@ -9,7 +9,7 @@ function MarvelContextProvider(props) {
     
     useEffect(() => {
         const getData = async () => {
-            const result = await axios(`http://gateway.marvel.com/v1/public/characters?limit=50&ts=1&apikey=f505b94338446de66695ad49dcf4b8ae&hash=${hash}`)
+            const result = await axios(`http://gateway.marvel.com/v1/public/characters?limit=100&ts=1&apikey=f505b94338446de66695ad49dcf4b8ae&hash=${hash}`)
                 console.log(result.data.data.results)
                 let newItems = result.data.data.results
                 setItems(newItems)
