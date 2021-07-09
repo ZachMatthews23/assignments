@@ -25,6 +25,18 @@
     padding: 0 20px;
   }
   
+  nav{
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0.555);
+    position: -webkit-sticky;
+  }
+
+  nav a{
+    padding-top: 10px;
+  }
+
   header {
     height: 200px;
   }
@@ -99,4 +111,89 @@
     list-style: none;
     padding-bottom: 10px;
   }
+
+  a{
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+  }
+
+  a:link{
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: none;
+    pointer-events: visible;
+    color: black;
+  }
+
+  a:visited{
+    text-decoration: none;
+  }
+
+  form{
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  input{
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    border: 0;
+  }
+
+  .search-bar{
+    width: 50%;
+  }
+
+  .favorites {
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.555);
+    padding: 5px;
+  }
+
+  .push{
+    margin-top: 0;
+    margin-bottom: 365px;
+  }
+
+  footer{
+    position: relative;
+    bottom: 0;
+    width: 100%; 
+    min-height: 40px;
+    background: rgba(0, 0, 0, 0.747);
+    margin-top: 63px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  button {
+    background-color: rgba(255, 0, 0, 0.555);
+    color: white;
+    height: 35px;
+    width: 80px;
+  }
+
+  .loading{
+    font-size: 150px;
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.555);
+  }
+
+  @media (max-width: 1200px) {
+    .contents {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   
+  @media (max-width: 1000px) {
+    .contents {
+      grid-template-columns: 1fr;
+    }
+  }
