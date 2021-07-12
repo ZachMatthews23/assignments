@@ -7,7 +7,7 @@ import {MarvelContext} from './MarvelContext'
 function Favorites() { 
 
     const {favorite, deleteFavorite} = useContext(MarvelContext)
-    const array = favorite.map(item => <CharacterCard character={item} key={item.id} click={() => deleteFavorite(item)}/>)
+    const array = favorite.favoritesData.map(item => <CharacterCard character={item} key={item.id} click={() => deleteFavorite(item)}/>)
 
     return (
         <>

@@ -20,7 +20,7 @@ function CharacterCard(props) {
                             <strong>Comics:</strong> {props.character.comics.items.map(comics => <p key={comics.resourceURI}>{comics.name}</p>)}
                         </li>
                     </ul>
-                    <button onClick={() => props.click()}>Toggle Favorite</button>
+                    <button onClick={props.click}>Toggle Favorite</button>
                 </div>
             </div>
         </div>

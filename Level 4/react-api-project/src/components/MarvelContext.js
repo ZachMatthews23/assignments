@@ -7,7 +7,7 @@ const hash = "9a477047516c75f0e7a25215f6aaecf8"
 function MarvelContextProvider(props) {
     const [items, setItems] = useState([])
     const [search, setSearch] = useState({name: "", searchData: []})
-    const [favorite, setFavorite] = useState([])
+    const [favorite, setFavorite] = useState({isFavorited: false, favoritesData: []})
     const [loading, setLoading] = useState(false)
 
     function handleChange(e) {
@@ -24,8 +24,8 @@ function MarvelContextProvider(props) {
     }
 
     function addFavorite(character) {
-        const favoriteCharacter = [...favorite, character]
-        setFavorite(favoriteCharacter)
+        // const favoriteCharacter = [...favorite, character]
+        setFavorite(prevFav => ({favoritesData: [...prevFav.favoritesData, character]}))
         alert(`${character.name} has been added to your favorites list.`)
     }    
 
