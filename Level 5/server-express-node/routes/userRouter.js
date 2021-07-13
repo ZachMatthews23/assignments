@@ -23,15 +23,24 @@ const users = [
 
 // OR
 
+
 userRouter.route("/")
+    //GET All
     .get((req, res) => {
         res.send(users)
     })
+    // POST One
     .post((req, res) => {
         const newUser = req.body
         newUser._id = uuid()
         users.push(newUser)
         res.send(`Successfully added ${newUser.name} to the database!`)
+    })
+    //GET One
+userRouter.get("/:userId", (req, res) => {
+        const userId = req.params.userId
+        const foundUser = users.find(user => user._id === userId)
+        res.send(foundUser)
     })
 
 module.exports = userRouter
