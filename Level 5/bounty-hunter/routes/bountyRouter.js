@@ -12,7 +12,7 @@ const bounties = [
         _id: uuid()
     },
     {
-        fName: "Darth",
+        fName: "Emporer",
         lName: "Palpotine",
         isAlive: true,
         payout: 1000000,
@@ -38,6 +38,20 @@ bountyRouter.route("/")
         newBounty._id = uuid()
         bounties.push(newBounty)
         res.send(`A new bounty has been set on ${newBounty.fName} ${newBounty.lName} for ${newBounty.payout} Imperial Credits.`)
+    })
+    bountyRouter.delete("/:bountyId", (req, res) => {
+        const bountyId = req.params.bountyId
+        const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+        bounties.splice(bountyIndex, 1)
+        res.send(`Successfully completed bounty.`)
+    })
+    bountyRouter.post("/:bountyId", (req, res) => {
+        const bountyId = req.params.bountyId
+        const updatedInfo = req.body
+        const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+        const updatedBounty = Object.assign(bounties[bountyIndex], updatedInfo)
+
+        res.send(updatedBounty)
     })
 
     module.exports = bountyRouter
