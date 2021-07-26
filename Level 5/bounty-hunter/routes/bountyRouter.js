@@ -39,6 +39,16 @@ bountyRouter.route("/")
         bounties.push(newBounty)
         res.send(newBounty)
     })
+    bountyRouter.get("/:bountyId", (req, res, next) => {
+        const bountyId = req.params.bountyId
+        const foundBounty = bounties.find(bounty => bounty._id === bountyId)
+        if(!foundBounty){
+            const error = new Error(`Bounty with the ID of ${bountyId} was not found.`)
+            return next(error)
+        }
+
+        res.send(foundBounty)
+    })
     bountyRouter.delete("/:bountyId", (req, res) => {
         const bountyId = req.params.bountyId
         const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
