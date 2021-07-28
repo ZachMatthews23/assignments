@@ -28,7 +28,7 @@ export default function Bounty(props) {
                     btnText="Complete Changes"
                     submit={props.editBounty}
                 />
-                <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Cancel</button>
+                <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Close</button>
             </>
             }
         </div>

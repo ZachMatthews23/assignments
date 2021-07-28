@@ -6,7 +6,7 @@ import AddBountyForm from './components/AddBountyForm.js'
 function App() {
     const [bounties, setBounties] = useState([])
 
-    function getMovies() {
+    function getBounties() {
         axios.get("/bounties")
             .then(res => setBounties(res.data))
             .catch(err => console.log(err))
@@ -29,15 +29,15 @@ function App() {
     }
 
     function editBounty(updates, bountyId) {
-        axios.put(`/bounties/${bountyId}`)
+        axios.put(`/bounties/${bountyId}`, updates)
             .then(res => {
-                setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data ))
+                setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
             })
             .catch(err => console.log(err))
     }
 
     useEffect(() => {
-        getMovies()
+        getBounties()
     }, [])
 
     return(

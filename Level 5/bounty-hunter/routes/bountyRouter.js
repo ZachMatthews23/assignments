@@ -55,12 +55,11 @@ bountyRouter.route("/")
         bounties.splice(bountyIndex, 1)
         res.send(`Successfully completed bounty.`)
     })
-    bountyRouter.post("/:bountyId", (req, res) => {
+    bountyRouter.put("/:bountyId", (req, res) => {
         const bountyId = req.params.bountyId
         const updatedInfo = req.body
         const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
         const updatedBounty = Object.assign(bounties[bountyIndex], updatedInfo)
-
         res.send(updatedBounty)
     })
 
