@@ -10,7 +10,12 @@ const bountySchema = new Schema({
         type: String,
         required: true
     },
+    affiliation: {
+        type: String,
+        enum: ['Jedi', 'Sith'],
+        required: true
+    },
     payout: Number
 })
 
-module.exports = mongoose.model("Bounty", bountySchema)
+module.exports = mongoose.model("Bounty", bountySchema) 

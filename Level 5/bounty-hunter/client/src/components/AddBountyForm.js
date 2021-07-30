@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 export default function AddBountyForm(props) {
-    const initInputs = { fName: props.fName || "", lName: props.lName || "", payout: props.payout || ""}
+    const initInputs = { fName: props.fName || "", lName: props.lName || "", affiliation: props.affiliation || "", payout: props.payout || ""}
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e) {
@@ -29,6 +29,13 @@ export default function AddBountyForm(props) {
                 name="lName"
                 value={inputs.lName}
                 placeholder="Last Name"
+                onChange={handleChange}
+            />
+            <input
+                type="text"
+                name="affiliation"
+                value={inputs.affiliation}
+                placeholder="Affiliation"
                 onChange={handleChange}
             />
             <input

@@ -36,6 +36,16 @@ function App() {
             .catch(err => console.log(err))
     }
 
+    function handleFilter(e){
+        if(e.target.value === "reset"){
+            getBounties()
+        } else {
+        axios.get(`/bounties/search/affiliation?affiliation=${e.target.value}`)
+            .then(res => setBounties(res.data))
+            .catch(err => console.log(err))
+        }
+    }
+
     useEffect(() => {
         getBounties()
     }, [])
@@ -46,6 +56,14 @@ function App() {
                 submit={addBounty}
                 btnText="Place Bounty"
             />
+
+            <h4>Filter by Affiliation</h4>
+            <select onChange={handleFilter} className="filter-form">
+                <option value="reset">- All Bounties -</option>
+                <option value="Jedi">Jedi</option>
+                <option value="Sith">Sith</option>
+            </select>
+
             {
             bounties.map(bounty => 
                 <Bounty 

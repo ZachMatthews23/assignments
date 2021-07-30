@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import AddBountyForm from './AddBountyForm'
 
 export default function Bounty(props) {
-    const { fName, lName, payout,  _id } = props
+    const { fName, lName, affiliation, payout,  _id } = props
     const [editToggle, setEditToggle] = useState(false)
 
     return(
@@ -10,6 +10,7 @@ export default function Bounty(props) {
             { !editToggle ?
             <>
                 <h1>Bounty: {fName} {lName}</h1>
+                <p>Affiliated With: {affiliation}</p>
                 <p>Reward: {payout} Imperial Credits</p>
                 <button 
                     onClick={() => props.deleteBounty(_id)} 
@@ -23,6 +24,7 @@ export default function Bounty(props) {
                 <AddBountyForm 
                     fName={fName}
                     lName={lName}
+                    affiliation={affiliation}
                     payout={payout}
                     _id={_id}
                     btnText="Complete Changes"
