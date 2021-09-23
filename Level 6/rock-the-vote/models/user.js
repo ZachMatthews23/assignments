@@ -21,7 +21,7 @@ const userSchema = new Schema({
         default: false
     },
     userImg: {
-        type: URL
+        type: String
     }
 })
 

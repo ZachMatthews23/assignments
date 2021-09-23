@@ -1,7 +1,7 @@
 const express = require('express')
 const authRouter = express.Router()
 const User = require('../models/user.js')
-const jwt = require('express-jwt')
+const jwt = require('jsonwebtoken')
 
 authRouter.post('/signup', (req, res, next) => {
     User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
@@ -19,13 +19,13 @@ authRouter.post('/signup', (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-            const token = jwt.toString(savedUser.toObject(), process.env.SECRET)
+            const token = jwt.sign(savedUser.toObject(), process.env.SECRET)
             return res.status(201).send({ token, user: savedUser })
         })
     })
 })
 
-authRouter.post('/logn', (req, res, next) => {
+authRouter.post('/login', (req, res, next) => {
     User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
         if(err){
             res.status(500)
@@ -39,7 +39,7 @@ authRouter.post('/logn', (req, res, next) => {
             res.status(403)
             return next(new Error("Incorrect username and or password"))
         }
-        const token = jwt.toString(user.toObject(), process.env.SECRET)
+        const token = jwt.sign(user.toObject(), process.env.SECRET)
         return res.status(200).send({ token, user})
     })
 })
