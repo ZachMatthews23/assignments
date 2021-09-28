@@ -13,7 +13,7 @@ issueRouter.get("/", (req, res, next) => {
 })
 
 issueRouter.get("/user", (req, res, next) => {
-    Issue.find({ user: req.body._id }, (err, issues) => {
+    Issue.find({ user: req.user._id }, (err, issues) => {
         if(err){
             res.status(500)
             return next(err)
@@ -23,7 +23,7 @@ issueRouter.get("/user", (req, res, next) => {
 })
 
 issueRouter.post("/", (req, res, next) => {
-    req.body.user = req.body._id
+    req.body.user = req.user._id
     const newIssue = new Issue(req.body)
     newIssue.save((err, savedIssue) => {
         if(err){
