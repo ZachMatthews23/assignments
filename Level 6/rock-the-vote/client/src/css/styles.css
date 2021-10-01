@@ -59,6 +59,10 @@
     border-radius: 4px;
   }
 
+  .err-msg{
+    max-width: fit-content;
+  }
+
   .profile {
     display: flex;
     flex-direction: column;

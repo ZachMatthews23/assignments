@@ -4,7 +4,7 @@ import AuthForm from './AuthForm'
 const initInputs = { username:"", password:"" } 
 
 export default function Auth(props){
-const { login, signup } = props
+const { login, signup, errMsg, resetAuthErr } = props
 const [inputs, setInputs] = useState(initInputs)
 const [toggle, setToggle] = useState(false)
 
@@ -26,6 +26,11 @@ function handleLogin(e){
     login(inputs)
 }
 
+function toggleForm(){
+    setToggle(prev => !prev)
+    resetAuthErr()
+}
+
     return(
         <div className="auth-container">
             <h1>Issues App</h1>
@@ -36,8 +41,9 @@ function handleLogin(e){
                     handleSubmit={handleSignUp}
                     inputs={inputs}
                     btnText="Sign Up"
+                    errMsg={errMsg}
                 />
-                <p onClick={() => setToggle(prev => !prev)}>Already a member?</p>
+                <p onClick={toggleForm}>Already a member?</p>
             </>
             :
             <>
@@ -46,8 +52,9 @@ function handleLogin(e){
                     handleSubmit={handleLogin}
                     inputs={inputs}
                     btnText="Login"
+                    errMsg={errMsg}
                 />
-                <p onClick={() => setToggle(prev => !prev)}>Need to signup?</p>
+                <p onClick={toggleForm}>Need to signup?</p>
             </>
             }
            

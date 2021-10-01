@@ -8,7 +8,8 @@ const {
     inputs: {
         username,
         password
-    }
+    },
+    errMsg
 } = props
 
     return(
@@ -28,6 +29,7 @@ const {
                 placeholder="Password"
             />
             <button>{ btnText }</button>
+            <p className="err-msg" style={{color: "red"}}>{errMsg}</p>
         </form>
     )
 }

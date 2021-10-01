@@ -16,7 +16,9 @@ export default function App(){
             username
         },
         addIssue,
-        issues
+        issues,
+        errMsg,
+        resetAuthErr
     } = useContext(UserContext)
     
     return(
@@ -25,11 +27,22 @@ export default function App(){
             <Switch>
                 <Route 
                     exact path="/"
-                    render={()=> token ? <Redirect to="/profile"/> : <Auth signup={signup} login={login} />}
+                    render={()=> token ? <Redirect to="/profile"/> : 
+                    <Auth 
+                        signup={signup} 
+                        login={login} 
+                        errMsg={errMsg} 
+                        resetAuthErr={resetAuthErr} 
+                    />}
                 />
                 <Route 
                     path="/profile"
-                    render={() => <Profile username={username} addIssue={addIssue} issues={issues}/>}
+                    render={() => 
+                    <Profile 
+                        username={username} 
+                        addIssue={addIssue} 
+                        issues={issues}
+                    />}
                 />
                 <Route 
                     path="/public"
