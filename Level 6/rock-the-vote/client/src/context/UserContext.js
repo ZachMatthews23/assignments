@@ -98,6 +98,17 @@ export default function UserProvider(props){
                 }))
             })
             .catch(err => console.log(err.response.data.errMsg))
+    }   
+
+    function handleVote(vote, issueId){
+        userAxios.put(`/api/issue/${vote}/${issueId}`)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    issues: [res.data]
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
     }
 
     return(
@@ -109,7 +120,8 @@ export default function UserProvider(props){
                 logout,
                 getUserIssues,
                 addIssue, 
-                resetAuthErr
+                resetAuthErr,
+                handleVote
             }}
         >
             {props.children}

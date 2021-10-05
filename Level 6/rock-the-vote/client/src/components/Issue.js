@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 export default function Issue(props){
-const { title, description, upvote, downvote } = props
+const { title, description, upvote, downvote, _id } = props
+
+const { handleVote } = useContext(UserContext)
+
+function voting(vote, id){
+    handleVote(vote, id)
+}
 
     return(
         <div className="issues">
@@ -10,9 +17,9 @@ const { title, description, upvote, downvote } = props
             <h3>{description}</h3>
             <hr/>
             <div className="votes">
-                <button>Upvote</button>
+                <button onClick={() => voting("upvote", _id)}>Upvote</button>
                 <p>{upvote}</p>
-                <button>Downvote</button>
+                <button onClick={() => voting("downvote", _id)}>Downvote</button>
                 <p>{downvote}</p>
             </div>
             

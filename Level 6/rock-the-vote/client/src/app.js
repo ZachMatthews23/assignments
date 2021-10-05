@@ -5,6 +5,7 @@ import Auth from './components/Auth'
 import Profile from './components/Profile'
 import Public from './components/Public'
 import { UserContext } from './context/UserContext.js'
+import ProtectedRoute from './components/ProtectedRoute'
 
 export default function App(){
     const { 
@@ -23,7 +24,7 @@ export default function App(){
     
     return(
         <div className="app">
-            <Navbar logout={logout} />
+            {token && <Navbar logout={logout} />}
             <Switch>
                 <Route 
                     exact path="/"
@@ -35,18 +36,20 @@ export default function App(){
                         resetAuthErr={resetAuthErr} 
                     />}
                 />
-                <Route 
+                <ProtectedRoute 
                     path="/profile"
-                    render={() => 
-                    <Profile 
-                        username={username} 
-                        addIssue={addIssue} 
-                        issues={issues}
-                    />}
+                    component={Profile}
+                    redirectTo="/"
+                    token={token}
+                    username={username} 
+                    addIssue={addIssue} 
+                    issues={issues}
                 />
-                <Route 
+                <ProtectedRoute 
                     path="/public"
-                    render={() => <Public />}
+                    component={Public}
+                    redirectTo="/"
+                    token={token}
                 /> 
             </Switch>
         </div>

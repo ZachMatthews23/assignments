@@ -62,4 +62,36 @@ issueRouter.put("/:issueId", (req, res, next) => {
     )
 })
 
+issueRouter.put('/upvote/:issueId', (req, res, next) => {
+    Issue.findByIdAndUpdate({ _id: req.params.issueId },
+        { $inc: {upvote: 1 },
+            $push: { votedUsers:
+                { $each: [req.user.username] }
+        }},
+        { new: true },
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedIssue)
+        })
+})
+
+issueRouter.put('/downvote/:issueId', (req, res, next) => {
+    Issue.findByIdAndUpdate({ _id: req.params.issueId },
+        { $inc: {downvote: 1 },
+            $push: { votedUsers:
+                { $each: [req.user.username] }
+        }},
+        { new: true },
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedIssue)
+        })
+})
+
 module.exports = issueRouter
