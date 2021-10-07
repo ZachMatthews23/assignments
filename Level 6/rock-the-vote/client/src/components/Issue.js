@@ -2,11 +2,10 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 
 export default function Issue(props){
-const { title, description, upvote, downvote, _id, votedUsers } = props
-
+const { title, description, upvote, downvote, _id, votedUsers, username, postDate } = props
 const {  user, handleVote } = useContext(UserContext)
 
-const posted = `Posted By: ${user}`
+const postedBy = `Posted By: ${username} on ${postDate.slice(0,10)} @ ${postDate.slice(11,16)}`
 
 function voting(vote, id, username){
     const voted = votedUsers.includes(username)
@@ -18,7 +17,6 @@ function voting(vote, id, username){
 
     return(
         <div className="issues">
-            <h1>{posted}</h1>
             <h1>{title}</h1>
             <hr/>
             <p>{description}</p>
@@ -29,7 +27,7 @@ function voting(vote, id, username){
                 <i style={{color: "red"}} onClick={() => voting("downvote", _id, user.username)}>⬇</i>
                 <p>{downvote}</p>
             </div>
-            
+            <h1>{postedBy}</h1>
         </div>
     )
 }

@@ -6,9 +6,9 @@ const { logout } = props
 
     return(
         <div className="navbar">
-            <Link to="/profile">Profile</Link>
-            <Link to="/public">Public</Link>
-            <button onClick={logout}>Logout?</button>
+            <Link style={{fontWeight: "bold"}} to="/profile">Profile</Link>
+            <Link style={{fontWeight: "bold"}} to="/public">Public</Link>
+            <button style={{fontWeight: "bold"}} onClick={logout}>Logout?</button>
         </div>
     )
 }

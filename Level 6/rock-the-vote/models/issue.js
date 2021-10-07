@@ -23,6 +23,14 @@ const issueSchema = new Schema({
         ref: "User",
         required: true
     },
+    username: {
+        type: String,
+        required: true
+    },
+    postDate: {
+        type: Date,
+        default: Date.now
+    },
     votedUsers: [{
         type: String
     }]

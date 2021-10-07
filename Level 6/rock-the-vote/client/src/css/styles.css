@@ -17,12 +17,37 @@
     justify-content: space-around;
     align-items: center;
     height: 40px;
-    background-color: #3339;
+    background-color: rgba(33, 107, 154, 0.6);
 }
 
 .navbar > button {
-  padding: 5px;
-  border-radius: 15px;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin: 0.3em 0 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:rgba(33, 107, 154, 0.6);
+  text-align:center;
+  transition: all 0.2s; 
+}
+
+.navbar > button:hover{
+  color:#000000;
+  background-color:#FFFFFF;
+}
+
+.navbar > a {
+  color: #000000;
+  margin-left: 25px;
+}
+
+.navbar > a:hover{
+  transform: scale(1.2);
+  transition-duration: 500ms;
 }
 
 .auth-container {
@@ -106,8 +131,7 @@
 
   .issues{
     background-color: white;
-    margin: auto;
-    width: auto;
+    margin: 15px;
     align-items: center;
     border: 1px solid #efefef;
     border-radius: 3px;
@@ -116,6 +140,8 @@
     flex-direction: column;
     gap: 10px;
     border-radius: 30px;
+    min-width: 500px;
+    max-width: 500px;
   }
 
   hr{
@@ -127,6 +153,12 @@
     flex-direction: row;
     gap: 5px;
   }
+
+  .votes > i:hover{
+    transform: scale(1.5);
+    transition-duration: 500ms;
+    cursor: pointer;
+  }  
 
   .public {
     display: flex;

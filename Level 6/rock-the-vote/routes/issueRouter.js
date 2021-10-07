@@ -24,6 +24,7 @@ issueRouter.get("/user", (req, res, next) => {
 
 issueRouter.post("/", (req, res, next) => {
     req.body.user = req.user._id
+    req.body.username = req.user.username
     const newIssue = new Issue(req.body)
     newIssue.save((err, savedIssue) => {
         if(err){

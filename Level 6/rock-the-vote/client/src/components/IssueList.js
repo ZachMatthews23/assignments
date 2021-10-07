@@ -6,7 +6,7 @@ const { issues } = props
 
     return(
         <div className="issue-list">
-            { issues.map(issue => <Issue {...issue} key={issue._id}/>)}
+            { issues.map(issue => <Issue {...issue} key={issue._id}/>).reverse()}
         </div>
     )
 }
