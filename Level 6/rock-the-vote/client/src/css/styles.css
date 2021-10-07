@@ -20,6 +20,11 @@
     background-color: #3339;
 }
 
+.navbar > button {
+  padding: 5px;
+  border-radius: 15px;
+}
+
 .auth-container {
     display: flex;
     align-items: center;
@@ -115,4 +120,28 @@
 
   hr{
       width: 100%;
+  }
+
+  .votes{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .public {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .public > h1 {
+    margin: 8px;
+    font-size: 2em;
+    text-align: center;
+  }
+  
+  .public > h3 {
+    margin: 16px 0;
+    text-decoration: underline;
   }

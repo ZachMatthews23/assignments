@@ -7,6 +7,7 @@ import Public from './components/Public'
 import { UserContext } from './context/UserContext.js'
 import ProtectedRoute from './components/ProtectedRoute'
 
+
 export default function App(){
     const { 
         token, 
@@ -19,7 +20,9 @@ export default function App(){
         addIssue,
         issues,
         errMsg,
-        resetAuthErr
+        resetAuthErr,
+        getAllIssues,
+        getUserIssues
     } = useContext(UserContext)
     
     return(
@@ -44,12 +47,17 @@ export default function App(){
                     username={username} 
                     addIssue={addIssue} 
                     issues={issues}
+                    getUserIssues={getUserIssues}
                 />
                 <ProtectedRoute 
                     path="/public"
                     component={Public}
                     redirectTo="/"
                     token={token}
+                    issues={issues}
+                    username={username}
+                    addIssue={addIssue}
+                    getAllIssues={getAllIssues}
                 /> 
             </Switch>
         </div>

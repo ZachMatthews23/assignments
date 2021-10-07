@@ -5,7 +5,6 @@ import App from './App.js';
 import UserProvider from './context/UserContext.js'
 import './css/styles.css'
 
-
 ReactDOM.render(
   <BrowserRouter>
     <UserProvider>

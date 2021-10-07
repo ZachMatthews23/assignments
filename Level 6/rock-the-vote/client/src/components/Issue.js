@@ -2,24 +2,31 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 
 export default function Issue(props){
-const { title, description, upvote, downvote, _id } = props
+const { title, description, upvote, downvote, _id, votedUsers } = props
 
-const { handleVote } = useContext(UserContext)
+const {  user, handleVote } = useContext(UserContext)
 
-function voting(vote, id){
+const posted = `Posted By: ${user}`
+
+function voting(vote, id, username){
+    const voted = votedUsers.includes(username)
+    voted ? 
+    alert("You have already voted")
+    :
     handleVote(vote, id)
 }
 
     return(
         <div className="issues">
-            <h2>{title}</h2>
+            <h1>{posted}</h1>
+            <h1>{title}</h1>
             <hr/>
-            <h3>{description}</h3>
+            <p>{description}</p>
             <hr/>
             <div className="votes">
-                <button onClick={() => voting("upvote", _id)}>Upvote</button>
+                <i style={{color: "green"}} onClick={() => voting("upvote", _id, user.username)}>⬆</i>
                 <p>{upvote}</p>
-                <button onClick={() => voting("downvote", _id)}>Downvote</button>
+                <i style={{color: "red"}} onClick={() => voting("downvote", _id, user.username)}>⬇</i>
                 <p>{downvote}</p>
             </div>
             

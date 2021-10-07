@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import IssueList from './IssueList'
 import IssueForm from './IssueForm'
 
 export default function Profile(props){
-const { username, addIssue, issues } = props
+const { username, addIssue, issues, getUserIssues } = props
+
+useEffect(() => {
+    getUserIssues()
+}, [])
 
     return(
         <div className="profile">
