@@ -1,6 +1,7 @@
 const express = require('express')
 const issueRouter = express.Router()
 const Issue = require('../models/issue.js')
+const Comment = require('../models/comment.js')
 
 issueRouter.get("/", (req, res, next) => {
     Issue.find((err, issues) => {
@@ -93,6 +94,22 @@ issueRouter.put('/downvote/:issueId', (req, res, next) => {
             }
             return res.status(201).send(updatedIssue)
         })
+})
+
+issueRouter.put('/:issueId/comments', (req, res, next) => {
+    const newComment = new Comment(req.body)
+
+    Issue.findByIdAndUpdate({ _id: req.params.issueId, user: req.user._id }, (err, updatedIssue) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        updatedIssue.comments.push(newComment)
+        updatedIssue.populate('comments')
+        updatedIssue.save()
+        
+        return res.status(200).send(updatedIssue)
+    })
 })
 
 module.exports = issueRouter

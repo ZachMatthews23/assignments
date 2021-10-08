@@ -177,3 +177,8 @@
     margin: 16px 0;
     text-decoration: underline;
   }
+
+  .posted-by {
+    margin-left: -200px;
+    font-size: small;
+  }

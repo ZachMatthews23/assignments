@@ -33,6 +33,10 @@ const issueSchema = new Schema({
     },
     votedUsers: [{
         type: String
+    }],
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: "Comment"
     }]
 })
 

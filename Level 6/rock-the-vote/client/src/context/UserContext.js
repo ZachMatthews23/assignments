@@ -17,7 +17,8 @@ export default function UserProvider(props){
         user: JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
         issues: [],
-        errMsg: ""
+        errMsg: "",
+        comments: []
     }
 
     const [userState, setUserState] = useState(initState)
@@ -97,7 +98,19 @@ export default function UserProvider(props){
                 }))
             })
             .catch(err => console.log(err.response.data.errMsg))
-    }   
+    }
+    
+    function addComment(issueId, newComment){
+        userAxios.put(`api/issue/${issueId}/comments`, newComment)
+            .then(res => {
+                console.log(res.data)
+                setUserState(prevState => ({
+                    ...prevState,
+                    comments: [...prevState.comments, res.data]
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
 
     function handleVote(vote, issueId){
         userAxios.put(`/api/issue/${vote}/${issueId}`)
@@ -131,7 +144,8 @@ export default function UserProvider(props){
                 addIssue, 
                 resetAuthErr,
                 handleVote,
-                getAllIssues
+                getAllIssues,
+                addComment
             }}
         >
             {props.children}
