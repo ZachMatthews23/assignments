@@ -30,7 +30,7 @@ function voting(vote, id, username){
                 <p>{downvote}</p>
             </div>
             <p className="posted-by">{postedBy}</p>
-            <CommentForm addComment={addComment}/>
+            <CommentForm id={_id} addComment={addComment}/>
             <CommentList comments={comments}/>
         </div>
     )

@@ -59,7 +59,8 @@ export default function UserProvider(props){
         setUserState({
             user: {},
             token: "", 
-            issues: []
+            issues: [],
+            comments: []
         })
     }
 
@@ -101,7 +102,7 @@ export default function UserProvider(props){
     }
     
     function addComment(issueId, newComment){
-        userAxios.put(`api/issue/${issueId}/comments`, newComment)
+        userAxios.post(`api/issue/${issueId}`, newComment)
             .then(res => {
                 console.log(res.data)
                 setUserState(prevState => ({

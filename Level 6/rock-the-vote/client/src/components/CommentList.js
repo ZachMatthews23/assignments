@@ -5,7 +5,7 @@ export default function CommentList(props) {
     const { comments } = props
     return (
         <div className="comment-list">
-            { comments.map(comment => <Comment {...comment} key={comment._id}/>) }
+            { comments.map(comment => <Comment {...comment} key={comments._id}/>) }
         </div>
     )
 }

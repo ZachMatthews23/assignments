@@ -96,19 +96,37 @@ issueRouter.put('/downvote/:issueId', (req, res, next) => {
         })
 })
 
-issueRouter.put('/:issueId/comments', (req, res, next) => {
+// issueRouter.post('/:issueId', (req, res, next) => {
+
+//     Issue.findById({ _id: req.params.issueId, user: req.user._id }, 
+//         { $addToSet: { $setfield: { comment: {
+//             $each: [req.body] }
+//         }}},
+//         { new: true },
+//         (err, updatedIssue) => {
+//             if(err){
+//                 res.status(500)
+//                 return next(err)
+//             }
+//             return res.status(201).send(updatedIssue)
+//         }
+//     )})
+
+issueRouter.post('/:issueId', (req, res, next) => {
+    req.body.user = req.user._id
+    const id = req.params.issueId
     const newComment = new Comment(req.body)
 
-    Issue.findByIdAndUpdate({ _id: req.params.issueId, user: req.user._id }, (err, updatedIssue) => {
+    Issue.findById({ _id: id }, (err, issue) => {
         if(err){
             res.status(500)
             return next(err)
         }
-        updatedIssue.comments.push(newComment)
-        updatedIssue.populate('comments')
-        updatedIssue.save()
-        
-        return res.status(200).send(updatedIssue)
+
+        issue.comment.push(newComment)
+        issue.save()
+
+        return res.status(201).send(issue)
     })
 })
 

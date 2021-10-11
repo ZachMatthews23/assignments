@@ -6,7 +6,7 @@ const initInputs = {
 
 export default function CommentForm(props) {
 const [inputs, setInputs] = useState(initInputs)
-const {addComment} = props
+const {addComment, id} = props
 
 function handleChange(e){
    const { name, value } = e.target 
@@ -18,22 +18,24 @@ function handleChange(e){
 
 function handleSubmit(e, id, inputs){
     e.preventDefault()
+    console.log(inputs)
     addComment(id, inputs)
     setInputs(initInputs)
 }
 
-const {comments} = inputs
+const {comment} = inputs
 
     return(
-        <form onSubmit={handleSubmit} className="comment-form">
+        <form onSubmit={(e) => handleSubmit(e, id, inputs)} className="comment-form">
             <input 
             placeholder="Comment"
             type="text"
-            value={comments}
+            value={comment}
             name="comment"
             onChange={handleChange}
             />
             <button>Submit</button>
+
         </form>
     )
 }
