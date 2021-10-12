@@ -1,7 +1,6 @@
 const express = require('express')
 const issueRouter = express.Router()
 const Issue = require('../models/issue.js')
-const Comment = require('../models/comment.js')
 
 issueRouter.get("/", (req, res, next) => {
     Issue.find((err, issues) => {
@@ -112,22 +111,39 @@ issueRouter.put('/downvote/:issueId', (req, res, next) => {
 //         }
 //     )})
 
-issueRouter.post('/:issueId', (req, res, next) => {
-    req.body.user = req.user._id
-    const id = req.params.issueId
-    const newComment = new Comment(req.body)
+// issueRouter.post('/:issueId', (req, res, next) => {
+//     req.body.user = req.user._id
+//     const id = req.params.issueId
+//     const newComment = new Comment(req.body)
 
-    Issue.findById({ _id: id }, (err, issue) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
+//     Issue.findById({ _id: id }, (err, issue) => {
+//         if(err){
+//             res.status(500)
+//             return next(err)
+//         }
 
-        issue.comment.push(newComment)
-        issue.save()
+//         issue.comment.push(newComment)
+//         issue.save()
 
-        return res.status(201).send(issue)
-    })
-})
+//         return res.status(201).send(issue)
+//     })
+// })
+
+// issueRouter.put(`/:issueId`, (req, res, next) => {
+//     Issue.findByIdAndUpdate(
+//         { _id: req.params.issueId },
+//         { $push:
+//             { comment: req.body }
+//         },
+//         { new: true },
+//         (err, issueWithComment) => {
+//             if(err){
+//                 res.status(500)
+//                 return next(err)
+//             }
+//             return res.status(201).send(issueWithComment)
+//         }
+//     )
+// })
 
 module.exports = issueRouter

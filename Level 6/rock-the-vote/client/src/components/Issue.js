@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
-import CommentForm from './CommentForm'
-import CommentList from './CommentList'
+
 
 export default function Issue(props){
 const { title, description, upvote, downvote, _id, votedUsers, username, postDate } = props
-const {  user, handleVote, addComment, comments } = useContext(UserContext)
+const {  user, handleVote } = useContext(UserContext)
 
 const postedBy = `Posted By: ${username} on ${postDate.slice(0,10)} @ ${postDate.slice(11,16)}`
 
@@ -30,8 +29,6 @@ function voting(vote, id, username){
                 <p>{downvote}</p>
             </div>
             <p className="posted-by">{postedBy}</p>
-            <CommentForm id={_id} addComment={addComment}/>
-            <CommentList comments={comments}/>
         </div>
     )
 }

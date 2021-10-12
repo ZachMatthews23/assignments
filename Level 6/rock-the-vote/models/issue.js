@@ -34,7 +34,9 @@ const issueSchema = new Schema({
     votedUsers: [{
         type: String
     }],
-    comment: [String]
+    comment: [{
+        type: String
+    }]
 })
 
 module.exports = mongoose.model("Issue", issueSchema)
