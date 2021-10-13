@@ -13,6 +13,10 @@ const workoutSchema = new Schema({
     description: {
         type: String,
         required: true
+    },
+    muscle: {
+        type: String,
+        required: true
     }
 })
 
