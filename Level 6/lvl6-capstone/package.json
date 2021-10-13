@@ -1,5 +1,5 @@
 {
-  "name": "rtv",
+  "name": "lvl6-capstone",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -16,8 +16,7 @@
     "express": "^4.17.1",
     "express-jwt": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.3",
+    "mongoose": "^6.0.10",
     "morgan": "^1.10.0"
   }
 }
-  
