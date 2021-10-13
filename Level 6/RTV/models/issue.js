@@ -9,15 +9,6 @@ const IssueSchema = new Schema({
   description: {
     type: String
   },
-  voters: {
-    type: Array,
-    required: false
-  },
-  votes: {
-    type: Number,
-    default: 0,
-    required: true
-  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
