@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/styles.css';
 import App from './App';
-import { BroweserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import UserProvider from './context/UserProvider.js'
+import WorkoutsProvider from './context/WorkoutsProvider.js'
 
 
 ReactDOM.render(
-  <BroweserRouter>
-    <App />
-  </BroweserRouter>
+  <BrowserRouter>
+    <UserProvider>
+      <WorkoutsProvider>
+        <App />
+      </WorkoutsProvider>
+    </UserProvider>
+  </BrowserRouter>
   ,
   document.getElementById('root')
 );

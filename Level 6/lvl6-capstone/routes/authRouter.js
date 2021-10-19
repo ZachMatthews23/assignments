@@ -2,7 +2,6 @@ const express = require('express')
 const authRouter = express.Router()
 const User = require('../models/user.js')
 const jwt = require('jsonwebtoken')
-const auth = require('basic-auth')
 
 //Signup
 authRouter.post('/signup', (req, res, next) => {
@@ -54,5 +53,6 @@ authRouter.post('/login', (req, res, next) => {
         })
     })
 })
+
 
 module.exports = authRouter

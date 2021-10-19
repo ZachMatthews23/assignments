@@ -6,6 +6,7 @@ export default function Navbar(props) {
     return (
         <div>
             <Link to="/profile" >Profile</Link>
+            <Link to="/workouts" >Workouts</Link>
             <Link to="/forum" >Forum</Link>
             <button onClick={logout}>Logout</button>
         </div>

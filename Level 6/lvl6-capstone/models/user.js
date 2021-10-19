@@ -18,8 +18,7 @@ const userSchema = new Schema({
         default: Date.now()
     },
     userImg: {
-        type: String,
-        required: True
+        type: String
     },
     isAdmin: {
         type: Boolean,

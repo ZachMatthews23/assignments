@@ -16,6 +16,9 @@ const workoutSchema = new Schema({
     duration: {
         type: Number,
         default: 0
+    },
+    image: {
+        type: String
     }
 })
 

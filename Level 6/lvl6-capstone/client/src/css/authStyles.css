@@ -1,0 +1,22 @@
+.auth-container{
+    background-image: url(https://www.ncl.ac.uk/mediav8/sport-/Weights-gym-right-aligned.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.auth-container > form{
+    margin-top: 100px;
+}
+
+.auth-container > p{
+    color: beige;
+}
+
+.auth-container > p:hover{
+    background-color: rgba(170, 170, 170, 0.6);
+    cursor: default;
+    padding: 3px;
+    border-radius: 20px;
+    transition-duration: 300ms;
+}
