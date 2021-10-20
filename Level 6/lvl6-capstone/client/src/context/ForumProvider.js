@@ -53,6 +53,7 @@ export default function ForumProvider(props) {
                     }))
                 })
             })
+            .catch(err => console.log(err.response.data.errMsg))
     }
 
     function getPostComments(userId){
@@ -89,7 +90,18 @@ export default function ForumProvider(props) {
                     })
                 }) 
             })
-            .catch(err => console.log(err.response.data.errMSg))
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    const handleDelete = (postId) => {
+        userAxios.delete(`/api/forum/${postId}`)
+            .then(res => {
+                return setUserState(prevInputs => ({
+                    ...prevInputs,
+                    posts: [...prevInputs.posts.filter(post => post._id !== postId)]
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
     }
 
     return (
@@ -103,7 +115,8 @@ export default function ForumProvider(props) {
                 setComments,
                 inputs,
                 setInputs,
-                initInputs
+                initInputs,
+                handleDelete
             }}
         >
             {props.children}

@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { IssueContext } from '../context/IssueProvider'
 import { UserContext } from '../context/UserProvider'
 
-
 export default function Comment(props){
     const {  issueId } = props
     const { setComments, addComment} = useContext(IssueContext)

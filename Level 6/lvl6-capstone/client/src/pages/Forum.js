@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import PostForm from '../components/PostForm'
+import PostForm from '../forms/PostForm'
 import Post from '../components/Post'
 import { ForumContext } from '../context/ForumProvider'
 
@@ -28,7 +28,7 @@ export default function Forum() {
             <div className="post-list">
             { 
                 posts.map(post => 
-                    <Post {...post} key={post._id} />)
+                    <Post post={post} key={post._id} />).reverse()
             }
             </div>
         </div>
