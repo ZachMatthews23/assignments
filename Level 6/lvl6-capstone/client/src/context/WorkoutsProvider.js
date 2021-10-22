@@ -50,7 +50,10 @@ export default function WorkoutsProvider(props) {
     function addWorkout(workout){
         userAxios.put(`/api/workouts/addWorkout`, workout)
             .then(res => {
-                setUserWorkouts( {workoutData: [res.data] })
+                setUserWorkouts(prevState => ({
+                    ...prevState,
+                    workoutData: [res.data.workouts]
+                }))
                 console.log(res.data.workouts)
                 console.log("this is the workoutdata", userWorkouts)
             })
