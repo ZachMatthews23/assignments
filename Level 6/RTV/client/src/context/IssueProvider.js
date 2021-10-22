@@ -117,6 +117,7 @@ export default function IssueProvider(props){
     
       .catch(err => console.log(err.response.data.errMsg))
   }
+  
   function addIssue(newIssue){
     userAxios.post("/api/issue", newIssue)
       .then(res => {

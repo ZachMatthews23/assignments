@@ -1,6 +1,7 @@
 const express = require('express')
 const workoutRouter = express.Router()
 const Workout= require('../models/workout.js')
+const User = require('../models/user.js')
 
 //Post workout for backend use only
 workoutRouter.post("/", (req, res, next) => {
@@ -22,6 +23,42 @@ workoutRouter.get("/", (req, res, next) => {
             return next(err)
         }
         return res.status(200).send(workout)
+    })
+})
+
+// workoutRouter.post("/addWorkout", (req, res, next) => {
+//     req.body.user = req.user._id
+//     req.body.workouts = req.params.workoutId
+//     const userWorkout = new UserWorkouts(req.body)
+//     userWorkout.save((err, savedWorkout) => {
+//         if(err){
+//             res.status(500)
+//             return next(err)
+//         }
+//         return res.status(201).send(savedWorkout)
+//     })
+// })
+workoutRouter.get('/user', (req, res, next) => {
+    User.find( {user: req.user._id }, (err, workouts) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(workouts)
+    })
+})
+
+workoutRouter.put('/addWorkout', (req, res, next) => {
+    console.log(req.body)
+    User.findByIdAndUpdate({ _id: req.user._id },
+        { $push: { workouts: { $each: [req.body]}}},
+        { new: true },
+        (err, updatedUser) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedUser)
     })
 })
 

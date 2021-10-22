@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function WorkoutCard(props) {
 
-    const { name, description, muscle, image } = props
+    const { name, description, muscle, image, add } = props
 
     return (
         <div className="content">
@@ -17,6 +17,7 @@ export default function WorkoutCard(props) {
                     <p>{description}</p>
                     <br/>
                     <p>Muscle: {muscle}</p>
+                    <i onClick={add}>+</i>
                 </div>
             </div>
         </div>

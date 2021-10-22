@@ -21,6 +21,7 @@ export default function WorkoutsProvider(props) {
     }
 
     const [userState, setUserState] = useState(initState)
+    const [userWorkouts, setUserWorkouts] = useState({workoutData: []})
 
     function getWorkouts(){
         userAxios.get("/api/workouts")
@@ -34,11 +35,36 @@ export default function WorkoutsProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    // function addUserWorkout(workout){
+    //     userAxios.post("/api/workouts/addWorkout", workout)
+    //         .then(res => {
+    //             setUserState(prevState => ({
+    //                 ...prevState,
+    //                 userWorkouts: [res.data]
+    //             }))
+    //             console.log(userState.userWorkouts)
+    //         })
+    //         .catch(err => console.log(err.response.data.errMsg))
+    // }
+
+    function addWorkout(workout){
+        userAxios.put(`/api/workouts/addWorkout`, workout)
+            .then(res => {
+                setUserWorkouts( {workoutData: [res.data] })
+                console.log(res.data.workouts)
+                console.log("this is the workoutdata", userWorkouts)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+            
+    }
+
     return (
         <WorkoutContext.Provider
             value={{
                 ...userState,
-                getWorkouts
+                getWorkouts,
+                addWorkout,
+                userWorkouts
             }}
         >
             {props.children}

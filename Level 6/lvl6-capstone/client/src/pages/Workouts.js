@@ -9,8 +9,15 @@ export default function Workouts() {
 
     const {
         workouts,
-        getWorkouts
+        getWorkouts,
+        addWorkout
     } = useContext(WorkoutContext)
+
+
+    function handleAdd(workout){
+        addWorkout(workout)
+        console.log(workout)
+    }
 
     useEffect(() => {
         if(!hasFetchedData.current){
@@ -37,6 +44,7 @@ export default function Workouts() {
                 workouts.map(workout => 
                     <WorkoutCard 
                        {...workout}
+                       add={() => handleAdd(workout)}
                        key={workout._id} 
                     />)
             }

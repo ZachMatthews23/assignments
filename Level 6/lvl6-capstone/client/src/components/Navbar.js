@@ -21,7 +21,7 @@ export default function Navbar(props) {
     return (
         <header className="header">
             <nav className="navbar">
-                <a href="/" className="nav-logo">Logo</a>
+                <a href="/" className="nav-logo">Logo 🏋</a>
                 <div className="nav-menu">
                     <Link className="nav-item" to="/profile" onClick={closeMenu}>Profile</Link>
                     <Link className="nav-item" to="/workouts" onClick={closeMenu}>Workouts</Link>

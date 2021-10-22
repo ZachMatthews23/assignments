@@ -23,11 +23,8 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    },
-    workouts: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Workout'
-    }]
+    }, 
+    workouts: []
 })
 
 userSchema.pre('save', function(next) {
