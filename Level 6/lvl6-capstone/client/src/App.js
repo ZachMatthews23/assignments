@@ -16,7 +16,7 @@ export default function App(){
             <Switch>
                 <Route 
                     exact path="/"
-                    render={() => token ? <Redirect to="/profile"/> : <Auth />}
+                    render={() => token ? <Redirect to="/workouts"/> : <Auth />}
                 />
                 <ProtectedRoute 
                     path="/profile"

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react'
 // import WorkoutsList from '../components/WorkoutsList'
 import { WorkoutContext } from '../context/WorkoutsProvider'
+import { UserContext } from '../context/UserProvider'
 import WorkoutCard from '../components/WorkoutCard'
 
 export default function Workouts() {
@@ -13,9 +14,11 @@ export default function Workouts() {
         addWorkout
     } = useContext(WorkoutContext)
 
+    const { user } = useContext(UserContext)
 
-    function handleAdd(workout){
-        addWorkout(workout)
+
+    function handleAdd(workout, userId){
+        addWorkout(workout, userId)
         console.log(workout)
     }
 
@@ -44,7 +47,7 @@ export default function Workouts() {
                 workouts.map(workout => 
                     <WorkoutCard 
                        {...workout}
-                       add={() => handleAdd(workout)}
+                       add={() => handleAdd(workout, user._id)}
                        key={workout._id} 
                     />)
             }

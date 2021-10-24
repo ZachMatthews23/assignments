@@ -20,45 +20,44 @@ export default function WorkoutsProvider(props) {
         errMsg: ""
     }
 
+    const workoutState = {
+        workoutData: []
+    }
+
     const [userState, setUserState] = useState(initState)
-    const [userWorkouts, setUserWorkouts] = useState({workoutData: []})
+    const [userWorkouts, setUserWorkouts] = useState(workoutState)
 
     function getWorkouts(){
         userAxios.get("/api/workouts")
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setUserState({
                     workouts: res.data
                 })
-                console.log(userState)
+                // console.log(userState)
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
 
-    // function addUserWorkout(workout){
-    //     userAxios.post("/api/workouts/addWorkout", workout)
-    //         .then(res => {
-    //             setUserState(prevState => ({
-    //                 ...prevState,
-    //                 userWorkouts: [res.data]
-    //             }))
-    //             console.log(userState.userWorkouts)
-    //         })
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
-
-    function addWorkout(workout){
+    function addWorkout(workout, userId){
         userAxios.put(`/api/workouts/addWorkout`, workout)
             .then(res => {
+                getUserWorkouts(userId)
+            })
+            .catch(err => console.log(err.response.data.errMsg))     
+    }
+
+    function getUserWorkouts(userId){
+        userAxios.get(`/api/workouts/${userId}`)
+            .then(res => {
+                console.log("This is the getUserWorkouts respone", res.data.workouts)
+                console.log("this is the workoutdata", userWorkouts.workoutData)
                 setUserWorkouts(prevState => ({
                     ...prevState,
-                    workoutData: [res.data.workouts]
+                    workoutData: res.data.workouts
                 }))
-                console.log(res.data.workouts)
-                console.log("this is the workoutdata", userWorkouts)
             })
             .catch(err => console.log(err.response.data.errMsg))
-            
     }
 
     return (
@@ -67,7 +66,8 @@ export default function WorkoutsProvider(props) {
                 ...userState,
                 getWorkouts,
                 addWorkout,
-                userWorkouts
+                ...userWorkouts,
+                getUserWorkouts
             }}
         >
             {props.children}

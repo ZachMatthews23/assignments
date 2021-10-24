@@ -26,20 +26,8 @@ workoutRouter.get("/", (req, res, next) => {
     })
 })
 
-// workoutRouter.post("/addWorkout", (req, res, next) => {
-//     req.body.user = req.user._id
-//     req.body.workouts = req.params.workoutId
-//     const userWorkout = new UserWorkouts(req.body)
-//     userWorkout.save((err, savedWorkout) => {
-//         if(err){
-//             res.status(500)
-//             return next(err)
-//         }
-//         return res.status(201).send(savedWorkout)
-//     })
-// })
-workoutRouter.get('/user', (req, res, next) => {
-    User.find( {user: req.user._id }, (err, workouts) => {
+workoutRouter.get('/:user', (req, res, next) => {
+    User.findById({ _id: req.params.user },(err, workouts) => {
         if(err){
             res.status(500)
             return next(err)
