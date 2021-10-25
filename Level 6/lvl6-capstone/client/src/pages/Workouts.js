@@ -11,15 +11,20 @@ export default function Workouts() {
     const {
         workouts,
         getWorkouts,
-        addWorkout
+        addWorkout,
+        filterWorkouts
     } = useContext(WorkoutContext)
 
     const { user } = useContext(UserContext)
 
-
     function handleAdd(workout, userId){
         addWorkout(workout, userId)
         console.log(workout)
+    }
+
+    function handleFilter(e){
+        const muscle = e.target.value
+        filterWorkouts(muscle)
     }
 
     useEffect(() => {
@@ -33,7 +38,7 @@ export default function Workouts() {
         <div className="workouts">
             <div className="filter">
                 <h4>Filter:</h4>
-                <select>
+                <select onChange={handleFilter}>
                     <option value="reset">- All Workouts -</option>
                     <option value="Chest">Chest</option>
                     <option value="Bicep">Bicep</option>

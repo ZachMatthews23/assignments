@@ -72,6 +72,20 @@ export default function WorkoutsProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    function filterWorkouts(muscle){
+        if(muscle === "reset"){
+            getWorkouts()
+        } else {
+            userAxios.get(`/api/workouts/search/muscle?muscle=${muscle}`)
+                .then(res => {
+                    setUserState({
+                        workouts: res.data
+                    })
+                })
+                .catch(err => console.log(err.response.data.errMsg))
+        }
+    }
+
     return (
         <WorkoutContext.Provider
             value={{
@@ -80,7 +94,8 @@ export default function WorkoutsProvider(props) {
                 addWorkout,
                 ...userWorkouts,
                 getUserWorkouts,
-                removeUserWorkouts
+                removeUserWorkouts,
+                filterWorkouts
             }}
         >
             {props.children}

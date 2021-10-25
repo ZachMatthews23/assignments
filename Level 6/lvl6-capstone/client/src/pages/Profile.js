@@ -40,8 +40,8 @@ export default function Profile() {
                     <li><a href="/profile">Workout 4</a></li>
                     <li><a href="/profile">Workout 5</a></li>
                     <li><a href="/profile">Workout 6</a></li>
-                    
                 </ul>
+                <div className="bottom"></div>
             </div>
             <div className="profile-workout-list">
                 { workoutData.map(workout => <WorkoutCard 

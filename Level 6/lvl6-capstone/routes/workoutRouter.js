@@ -36,6 +36,16 @@ workoutRouter.get('/:user', (req, res, next) => {
     })
 })
 
+workoutRouter.get('/search/muscle', (req, res, next) => {
+    Workout.find({ muscle: req.query.muscle }, (err, workouts) => {
+        if(err){
+            res.status(err)
+            return next(err)
+        }
+        return res.status(200).send(workouts)
+    })
+})
+
 //add workout to user's []
 workoutRouter.put('/addWorkout', (req, res, next) => {
     console.log(req.body)

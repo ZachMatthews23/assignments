@@ -13,10 +13,12 @@
     background: rgb(254, 227, 90); 
   } 
 
-.profile {
-    height: 100vh;
+.profile, .profile-list {
+    min-height: 100vh;
+    max-height: 100%;
     background-color: grey;
     background-size: cover;
+    
 }
 
 .profile-header {
@@ -40,8 +42,7 @@
     float: left;
     margin: -67px 100px 30px 0px;
     background-color: rgb(255, 90, 90);
-    padding: 40px 30px 30px 30px;
-    height: 100vh;
+    padding: 40px 30px 0px 30px;
     border-radius: 5px;
 }
 
@@ -78,11 +79,6 @@ a:hover{
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem; 
         margin: 40px;
-    }
-
-    .profile {
-        height: 100%;
-        background-color: grey;
     }
 
     .profile-list{

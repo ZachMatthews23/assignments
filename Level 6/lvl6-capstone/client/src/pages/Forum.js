@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef } from 'react'
 import PostForm from '../forms/PostForm'
 import Post from '../components/Post'
 import { ForumContext } from '../context/ForumProvider'
-import '../css/forumStyles.css'
 
 export default function Forum() {
 
