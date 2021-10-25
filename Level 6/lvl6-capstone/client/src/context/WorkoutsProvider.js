@@ -47,6 +47,18 @@ export default function WorkoutsProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))     
     }
 
+    function removeUserWorkouts(workout, userId) {
+        userAxios.put('/api/workouts/removeWorkout', workout)
+            .then(res => {
+                getUserWorkouts(userId)
+                setUserWorkouts(prevState => ({
+                    ...prevState,
+                    workoutData: res.data.workouts
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
     function getUserWorkouts(userId){
         userAxios.get(`/api/workouts/${userId}`)
             .then(res => {
@@ -67,7 +79,8 @@ export default function WorkoutsProvider(props) {
                 getWorkouts,
                 addWorkout,
                 ...userWorkouts,
-                getUserWorkouts
+                getUserWorkouts,
+                removeUserWorkouts
             }}
         >
             {props.children}

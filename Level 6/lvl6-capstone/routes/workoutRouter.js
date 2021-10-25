@@ -36,6 +36,7 @@ workoutRouter.get('/:user', (req, res, next) => {
     })
 })
 
+//add workout to user's []
 workoutRouter.put('/addWorkout', (req, res, next) => {
     console.log(req.body)
     User.findByIdAndUpdate({ _id: req.user._id },
@@ -48,6 +49,21 @@ workoutRouter.put('/addWorkout', (req, res, next) => {
             }
             return res.status(201).send(updatedUser)
     })
+})
+
+//remove workout from user's []
+workoutRouter.put('/removeWorkout', (req, res, next) => {
+    console.log(req.body)
+    User.findByIdAndUpdate({ _id: req.user._id }, 
+        {$pullAll: { workouts: [req.body]}},
+        { new: true },
+        (err, updatedUser) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedUser)
+        })
 })
 
 module.exports = workoutRouter

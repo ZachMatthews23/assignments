@@ -31,16 +31,19 @@ export default function Workouts() {
 
     return (
         <div className="workouts">
+            <div className="filter">
+                <h4>Filter:</h4>
+                <select>
+                    <option value="reset">- All Workouts -</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Bicep">Bicep</option>
+                    <option value="Tricep">Tricep</option>
+                    <option value="Back">Back</option>
+                    <option value="Legs">Legs</option>
+                </select>
+            </div>
             <h1 className="workout-header">Explore Workouts:</h1>
-            <h4>Filter:</h4>
-            <select>
-                <option value="reset">- All Workouts -</option>
-                <option value="Chest">Chest</option>
-                <option value="Bicep">Bicep</option>
-                <option value="Tricep">Tricep</option>
-                <option value="Back">Back</option>
-                <option value="Legs">Legs</option>
-            </select>
+            
             {/* <WorkoutsList workouts={workouts}/> */}
             <div className="workout-list">
             {
