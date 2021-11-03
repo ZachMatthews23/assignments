@@ -65,11 +65,8 @@ html, body {
     max-width: fit-content;
 }
 
-.workouts {
+.workouts, .forum {
     min-height: 100vh;
-}
-
-.workouts, .forum{
     background-color: grey;
     background-size: cover;
 }
@@ -178,7 +175,9 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+    margin-bottom: 100px;
 }
 
 .post{
@@ -295,6 +294,13 @@ hr {
         margin-left: 0px;
         font-size: small;
     }
+
+    .delete-btn {
+        margin: -20px -450px 0px 0px;
+        font-size: x-small;
+        color: #000000;
+    }
+
   }
 
   @media (max-width: 768px) {
@@ -309,5 +315,9 @@ hr {
         display: none;
     }
 
-    
+    .delete-btn {
+        margin: -20px -450px 0px 0px;
+        font-size: x-small;
+        color: #000000;
+    }
   }
