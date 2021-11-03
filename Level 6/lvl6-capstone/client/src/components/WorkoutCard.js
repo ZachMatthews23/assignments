@@ -11,13 +11,13 @@ export default function WorkoutCard(props) {
                     <img src={image} alt=""  />
                 </div>
                 <div className="content-back">
+                    <i className="add-delete-btn" onClick={add}>+</i>
                     <h1>{name}</h1>
                     <br/>
                     <h3>Workout Description:</h3>
                     <p>{description}</p>
                     <br/>
                     <p>Muscle: {muscle}</p>
-                    <i onClick={add}>+</i>
                 </div>
             </div>
         </div>

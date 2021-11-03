@@ -137,6 +137,15 @@ html, body {
     font-size: small;
 }
 
+.add-delete-btn{
+    float: right;
+}
+
+.add-delete-btn:hover{
+    transform: scale(2);
+    transition: 300ms;
+}
+
 .filter{
     display: flex;
     flex-direction: row;

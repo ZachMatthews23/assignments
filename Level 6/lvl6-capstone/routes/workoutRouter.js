@@ -48,16 +48,15 @@ workoutRouter.get('/search/muscle', (req, res, next) => {
 
 //add workout to user's []
 workoutRouter.put('/addWorkout', (req, res, next) => {
-    console.log(req.body)
     User.findByIdAndUpdate({ _id: req.user._id },
-        { $push: { workouts: { $each: [req.body]}}},
-        { new: true },
-        (err, updatedUser) => {
-            if(err){
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201).send(updatedUser)
+            { $push: { workouts: { $each: [req.body]}}},
+            { new: true },
+            (err, updatedUser) => {
+                if(err){
+                    res.status(500)
+                    return next(err)
+                }
+                return res.status(201).send(updatedUser)
     })
 })
 
